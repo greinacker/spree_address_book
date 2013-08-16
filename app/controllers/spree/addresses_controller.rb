@@ -24,7 +24,7 @@ class Spree::AddressesController < Spree::StoreController
   end
 
   def create
-    @address.user = current_user
+    @address.user = spree_current_user
     if @address.save
       flash[:notice] = I18n.t(:successfully_created, :resource => I18n.t(:address))
       redirect_to account_path
